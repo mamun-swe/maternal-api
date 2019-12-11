@@ -7,7 +7,7 @@ router.post('/create-account', authControllers.patientRegistration)
 router.get('/logged-patient', authControllers.loggedPatient)
 
 router.get('/all-doctor', doctorControllers.allDoctor)
-router.get('/single-doctor', doctorControllers.singleDoctor)
+router.get('/single-doctor/:id', doctorControllers.singleDoctor)
 
 
 

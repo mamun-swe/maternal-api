@@ -20,7 +20,7 @@ const allDoctor = (req, res) => {
 }
 
 const singleDoctor = (req, res) => {
-    Doctor.findById({ _id: req.params.id }, { fullname: 1, phone: 1 })
+    Doctor.findOne({ _id: req.params.id }, { fullname: 1, phone: 1 })
         .then(doctor => {
             if (doctor) {
                 res.status(200).json({
