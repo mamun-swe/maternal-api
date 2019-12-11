@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
 // mongoose.connect('mongodb://localhost:27017/maternal-health', {
-    mongoose.connect('mongodb+srv://mamun:Yvzqcdms3ppWKM1x@cluster0-vxoak.mongodb.net/health?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://mamun:Yvzqcdms3ppWKM1x@cluster0-vxoak.mongodb.net/health?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

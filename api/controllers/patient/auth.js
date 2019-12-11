@@ -55,6 +55,27 @@ const patientRegistration = (req, res) => {
 }
 
 
+const loggedPatient = (req, res) => {
+    Patient.findById({ _id: req.params.id })
+        .then(patient => {
+            if (patient) {
+                res.status(200).json({
+                    patient
+                })
+            }
+        })
+        .catch(err => {
+            if (err) {
+                res.status(501).json({
+                    message: 'error',
+                    errMessage: err
+                })
+            }
+        })
+}
+
+
 module.exports = {
-    patientRegistration
+    patientRegistration,
+    loggedPatient
 }
