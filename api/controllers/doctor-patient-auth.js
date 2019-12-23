@@ -23,6 +23,7 @@ const doctorPatientAuth = (req, res) => {
                                 message: 'success',
                                 token,
                                 id: patient._id,
+                                name: patient.fullname,
                                 type: patient.user_type
                             })
                         } else {
@@ -63,6 +64,7 @@ const doctorPatientAuth = (req, res) => {
                                 message: 'success',
                                 token,
                                 id: doctor._id,
+                                name: doctor.fullname,
                                 type: doctor.user_type
                             })
                         } else {

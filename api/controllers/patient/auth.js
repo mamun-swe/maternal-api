@@ -56,7 +56,7 @@ const patientRegistration = (req, res) => {
 
 
 const loggedPatient = (req, res) => {
-    Patient.findById({ _id: req.params.id })
+    Patient.findById({ _id: req.params.id }, {password: 0})
         .then(patient => {
             if (patient) {
                 res.status(200).json({

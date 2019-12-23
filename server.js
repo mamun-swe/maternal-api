@@ -5,7 +5,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
 // mongoose.connect('mongodb://localhost:27017/maternal-health', {
-mongoose.connect('mongodb+srv://mamun:Yvzqcdms3ppWKM1x@cluster0-vxoak.mongodb.net/health?retryWrites=true&w=majority', {
+// mongoose.connect('mongodb+srv://mamun:Yvzqcdms3ppWKM1x@cluster0-vxoak.mongodb.net/health?retryWrites=true&w=majority', {
+    mongoose.connect('mongodb://localhost:27017/maternal-health', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -16,6 +17,7 @@ mongoose.connection.on('connected', () => {
 
 const app = express()
 app.use(morgan('dev'))
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
@@ -25,10 +27,12 @@ const adminRoute = require('./api/routes/admin')
 const doctorRoute = require('./api/routes/doctor')
 const patientRoute = require('./api/routes/patient')
 const loginRoute = require('./api/routes/doctor-patient-login')
+const reportRoute = require('./api/routes/report')
 app.use('/api/admin', adminRoute)
 app.use('/api/doctor', doctorRoute)
 app.use('/api/patient', patientRoute)
 app.use('/api/login', loginRoute)
+app.use('/api/consult', reportRoute)
 
 const port = process.env.PORT || 3000
 app.get('/', (req, res) => {
